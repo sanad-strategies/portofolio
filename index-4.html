@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanad — brand studio for jewelry &amp; maker labels</title>
+<link rel="icon" type="image/svg+xml" href="sanad-icon.svg">
+<link rel="stylesheet" href="home.css?v=2">
+</head>
+<body class="loading">
+
+<div class="paper-bg"></div>
+<div class="grain"></div>
+<div class="progress-bar"><span id="progress-fill"></span></div>
+<div class="cursor-dot" id="cursor-dot"></div>
+
+<div id="preloader">
+  <div class="mark">Sanad</div>
+  <div class="bar"><span id="bar-fill"></span></div>
+  <div class="pct" id="pct">0%</div>
+</div>
+
+<header>
+  <div class="wrap nav-row">
+    <a class="mark" href="index.html">
+      <svg viewBox="0 0 60 62" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="3.4" fill="none" stroke-linecap="round"><line x1="10" y1="14" x2="54" y2="14"/><line x1="16" y1="14" x2="16" y2="58"/><line x1="48" y1="14" x2="48" y2="58"/><line x1="8" y1="58" x2="56" y2="58"/><line x1="32" y1="26" x2="32" y2="58"/><line x1="20" y1="30" x2="44" y2="30"/></g></svg>
+      Sanad
+    </a>
+    <nav class="nav-links">
+      <a href="toastella.html">Toastella</a>
+      <a href="nostalgia.html">Nostalgia</a>
+      <a href="pulse.html">Pulse</a>
+      <a href="packages.html">Packages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Sanad</h1>
+    <p class="tagline">Brand identity, product photography, and websites — for jewelry and maker labels that want a foundation, not a favor.</p>
+  </div>
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span>Brand Identity</span>
+      <span class="accent">—</span>
+      <span>Product Photography</span>
+      <span class="accent">—</span>
+      <span>Website Design</span>
+      <span class="accent">—</span>
+      <span>Brand Identity</span>
+      <span class="accent">—</span>
+      <span>Product Photography</span>
+      <span class="accent">—</span>
+      <span>Website Design</span>
+      <span class="accent">—</span>
+    </div>
+  </div>
+</section>
+
+<section class="story reveal">
+  <div class="wrap grid">
+    <div class="word">سند</div>
+    <div>
+      <blockquote>"Sanad" means support — the pillar a structure leans on before anything else gets built. That's what a brand identity should be too: the thing everything else stands on.</blockquote>
+      <p class="credit">Mano Daoud, founder</p>
+    </div>
+  </div>
+</section>
+
+<section class="founder reveal">
+  <div class="wrap">
+    <div class="sticker" style="max-width:640px; margin:0 auto;">
+      <img src="mano-photo.jpg" alt="Mano, founder of Sanad">
+    </div>
+    <div style="text-align:center; margin-top:18px;">
+      <span class="scribble">that's me — Mano ✷</span>
+    </div>
+  </div>
+</section>
+
+<section class="work reveal" id="work">
+  <div class="wrap">
+    <div class="label">Selected work</div>
+    <div class="work-list">
+      <a class="work-row" href="toastella.html">
+        <h2>Toastella</h2>
+        <span class="kind">Food &amp; snack brand</span>
+        <img class="work-preview" src="toastella-black.jpg" alt="">
+      </a>
+      <a class="work-row" href="nostalgia.html">
+        <h2>Nostalgia</h2>
+        <span class="kind">Apparel brand</span>
+        <img class="work-preview" src="nostalgia-mark.jpg" alt="">
+      </a>
+      <a class="work-row" href="pulse.html">
+        <h2>Pulse</h2>
+        <span class="kind">Jewelry brand</span>
+        <img class="work-preview" src="pulse-logo.jpg" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="principles reveal">
+  <div class="wrap">
+    <div class="label">How this studio works</div>
+    <div class="p-row">
+      <h3>Fit, not a formula</h3>
+      <p>Every brand starts from what it actually needs — not a fixed package stretched to fit.</p>
+    </div>
+    <div class="p-row">
+      <h3>Fast, without shortcuts</h3>
+      <p>Dedicated to shipping quickly, without cutting corners on craft.</p>
+    </div>
+    <div class="p-row">
+      <h3>Built to last</h3>
+      <p>An identity is a foundation — it should still hold up years after the trend that inspired it fades.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div class="wrap">
+    <h2>Let's build <em>something.</em></h2>
+    <a class="cta" href="https://wa.me/201555689445" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <div class="note">Messages only, please — no calls.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <div>Sanad</div>
+    <div>Based in Egypt</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pctEl = document.getElementById('pct');
+  var barEl = document.getElementById('bar-fill');
+  var pre = document.getElementById('preloader');
+  var body = document.body;
+
+  if (reduced) {
+    pre.classList.add('done');
+    body.classList.remove('loading');
+    return;
+  }
+
+  var n = 0;
+  var duration = 1100;
+  var start = null;
+
+  function step(ts){
+    if (!start) start = ts;
+    var progress = Math.min(1, (ts - start) / duration);
+    n = Math.floor(progress * 100);
+    pctEl.textContent = n + '%';
+    barEl.style.width = n + '%';
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      setTimeout(function(){
+        pre.classList.add('done');
+        body.classList.remove('loading');
+      }, 150);
+    }
+  }
+  requestAnimationFrame(step);
+})();
+</script>
+<script src="interactions.js?v=2"></script>
+
+</body>
+</html>
